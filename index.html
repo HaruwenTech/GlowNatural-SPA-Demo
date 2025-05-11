@@ -1,180 +1,342 @@
+<!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description"
-            content="Tienda de skincare y maquillaje natural. Productos artesanales, naturales y de calidad. Descubrí tu ritual de belleza.">
-        <meta name="keywords"
-            content="skincare, maquillaje natural, tienda belleza, cuidado de la piel">
-        <meta name="author" content="Haruwen Tech">
-        <title>GlowNatural</title>
-        <script
-            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <script src="https://unpkg.com/@phosphor-icons/web"></script>
-        <link rel="icon" href="favicon.ico">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de skincare y maquillaje natural inspirado en la belleza asiática. Productos artesanales, naturales y de calidad. Descubrí tu ritual de belleza.">
+    <meta name="keywords" content="skincare, maquillaje natural, k-beauty, j-beauty, cuidado de la piel, belleza asiática">
+    <meta name="author" content="Haruwen Tech">
+    <title>GlowNatural | Belleza Asiática Natural</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@200;300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .sakura-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="%23ff9eb5" d="M50 0c13.8 0 25 11.2 25 25 0 13.8-11.2 25-25 25-13.8 0-25-11.2-25-25C25 11.2 36.2 0 50 0zm0 10c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z"/></svg>');
+            background-size: 150px;
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(255, 158, 181, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #FF9EB5;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
 
-    <body class="bg-white text-gray-800 font-sans scroll-smooth text-center">
+<body class="bg-rose-50 text-gray-700 text-center">
 
-        <!-- Navbar -->
-        <header class="sticky top-0 bg-white shadow z-50">
-            <nav
-                class="container mx-auto px-4 py-4 flex justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <img src="./GlowNaturall.png" alt="Logo GlowNatural"
-                        class="h-12 w-auto">
-                    <h1
-                        class="text-2xl font-bold text-pink-500">GlowNatural</h1>
-                </div>
-                <button id="menu-btn"
-                    class="block md:hidden text-pink-500 text-3xl">
-                    <i class="ph ph-list"></i>
-                </button>
-                <ul id="menu"
-                    class="hidden md:flex gap-6 font-medium absolute md:static top-16 right-4 w-48 md:w-auto bg-white md:bg-transparent flex-col md:flex-row items-start md:items-center p-4 md:p-0 shadow md:shadow-none rounded-lg z-50">
-                    <li><a href="#home"
-                            class="hover:text-pink-500">Inicio</a></li>
-                    <li><a href="#catalogo"
-                            class="hover:text-pink-500">Catálogo</a></li>
-                    <li><a href="#beneficios"
-                            class="hover:text-pink-500">Beneficios</a></li>
-                    <li><a href="#contacto"
-                            class="hover:text-pink-500">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Hero -->
-        <section id="home" class="bg-pink-100 py-20 text-center">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold mb-4">Cuidá tu piel, destacá tu
-                    belleza</h2>
-                <p class="text-lg mb-6">Productos de skincare y maquillaje
-                    natural pensados para vos</p>
-                <a href="#catalogo"
-                    class="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition">Explorar
-                    catálogo</a>
+    <!-- Navbar -->
+    <header class="sticky top-0 bg-white/80 backdrop-blur-sm shadow-sm z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="./GlowNaturall.png" alt="Logo GlowNatural" class="h-10 w-auto">
+                <h1 class="text-xl font-bold text-rose-400">GlowNatural</h1>
             </div>
-        </section>
+            <button id="menu-btn" class="block md:hidden text-rose-400 text-2xl">
+                <i data-lucide="menu"></i>
+            </button>
+            <ul id="menu" class="hidden md:flex gap-8 font-medium absolute md:static top-16 right-4 w-56 md:w-auto bg-white md:bg-transparent flex-col md:flex-row items-start md:items-center p-6 md:p-0 shadow-lg md:shadow-none rounded-lg z-50">
+                <li><a href="#home" class="nav-link text-gray-600 hover:text-rose-400">Inicio</a></li>
+                <li><a href="#catalogo" class="nav-link text-gray-600 hover:text-rose-400">Catálogo</a></li>
+                <li><a href="#beneficios" class="nav-link text-gray-600 hover:text-rose-400">Beneficios</a></li>
+                <li><a href="#contacto" class="nav-link text-gray-600 hover:text-rose-400">Contacto</a></li>
+                <li class="md:ml-4 mt-4 md:mt-0">
+                    <button class="flex items-center gap-1 text-rose-400 hover:text-rose-500">
+                        <i data-lucide="shopping-cart"></i>
+                        <span class="text-sm">(0)</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- Catálogo -->
-        <section id="catalogo" class="py-16 bg-white">
-            <div class="container mx-auto px-6">
-                <h3 class="text-3xl font-bold text-center mb-10">Catálogo de
-                    productos</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Producto 1 -->
-                    <div
-                        class="producto border rounded-lg p-4 shadow hover:shadow-lg transition">
-                        <h4 class="text-xl font-semibold">Serum Facial
-                            Hidratante</h4>
-                        <img src="img/productos/serum_facil.jpg"
-                            alt="Serum facial natural"
-                            class="w-full rounded mb-4">
-                              <p class="text-gray-600 text-sm mb-2">Ideal para piel seca. Con vitamina C y colágeno.</p>
+    <!-- Hero -->
+    <section id="home" class="sakura-bg py-20 text-center">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="inline-block bg-white/80 rounded-full px-4 py-2 mb-6 shadow-sm">
+                <span class="text-rose-400 text-sm font-medium">✨ Nuevos productos coreanos</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">Rituales de belleza <span class="text-rose-400">asiáticos</span> para tu piel</h2>
+            <p class="text-lg mb-8 text-gray-600">Inspirados en las tradiciones de Corea y Japón, con ingredientes naturales</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#catalogo" class="bg-rose-400 text-white px-8 py-3 rounded-full hover:bg-rose-500 transition shadow-sm hover:shadow-rose-200">Explorar productos</a>
+                <a href="#beneficios" class="border border-rose-300 text-rose-400 px-8 py-3 rounded-full hover:bg-rose-50 transition">Conoce más</a>
+            </div>
+        </div>
+    </section>
 
-                        <p class="text-pink-500 font-bold my-2">$4.500</p>
-  <button onclick="abrirModal('serum')" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Ver más</button>
+    
+  <!-- Catálogo -->
+  <section id="catalogo" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h3 class="text-3xl font-bold mb-4 text-gray-800">Nuestros productos estrella</h3>
+        <p class="text-gray-600">Descubre la magia de la belleza asiática con nuestros productos cuidadosamente
+          seleccionados</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Producto 1 -->
+        <div class="product-card bg-white border border-rose-100 p-6 shadow-sm">
+          <div class="relative overflow-hidden rounded-xl mb-4 h-48 bg-rose-50 flex items-center justify-center">
+            <img src="img/productos/serum_facil.jpg" alt="Serum facial natural"
+              class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-rose-400 text-white text-xs px-2 py-1 rounded-full">Nuevo</div>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Serum Facial Hidratante</h4>
+          <p class="text-gray-500 text-sm mb-4">Ideal para piel seca. Con vitamina C y colágeno.</p>
+          <div class="flex justify-between items-center">
+            <p class="text-rose-400 font-bold">$4.500</p>
+            <button data-producto="serum"
+              class="abrir-modal text-rose-400 hover:text-rose-500 flex items-center gap-1 text-sm">
+              Ver más <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Producto 2 -->
+        <div class="product-card bg-white border border-rose-100 p-6 shadow-sm">
+          <div class="relative overflow-hidden rounded-xl mb-4 h-48 bg-rose-50 flex items-center justify-center">
+            <img src="img/productos/labial_rosa.jpg" alt="Labial rosa natural"
+              class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-rose-400 text-white text-xs px-2 py-1 rounded-full">Más vendido</div>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Labial Tinte Coreano</h4>
+          <p class="text-gray-500 text-sm mb-4">Color suave con acabado cremoso. Ideal para uso diario.</p>
+          <div class="flex justify-between items-center">
+            <p class="text-rose-400 font-bold">$3.200</p>
+            <button data-producto="labial"
+              class="abrir-modal text-rose-400 hover:text-rose-500 flex items-center gap-1 text-sm">
+              Ver más <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Producto 3 -->
+        <div class="product-card bg-white border border-rose-100 p-6 shadow-sm">
+          <div class="relative overflow-hidden rounded-xl mb-4 h-48 bg-rose-50 flex items-center justify-center">
+            <img src="img/productos/crema_hidratante.jpg" alt="Crema facial nutritiva"
+              class="w-full h-full object-cover">
+          </div>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Crema Facial J-Beauty</h4>
+          <p class="text-gray-500 text-sm mb-4">Hidratación profunda con extracto de camelia.</p>
+          <div class="flex justify-between items-center">
+            <p class="text-rose-400 font-bold">$5.000</p>
+            <button data-producto="crema"
+              class="abrir-modal text-rose-400 hover:text-rose-500 flex items-center gap-1 text-sm">
+              Ver más <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+    <!-- Beneficios -->
+    <section id="beneficios" class="py-16 bg-rose-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center mb-12">
+                <h3 class="text-3xl font-bold mb-4 text-gray-800">La esencia de la belleza asiática</h3>
+                <p class="text-gray-600">Descubre por qué los rituales de belleza coreanos y japoneses son famosos mundialmente</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="leaf" class="text-rose-400 w-6 h-6"></i>
                     </div>
-                    <!-- Producto 2 -->
-                    <div
-                        class="producto border rounded-lg p-4 shadow hover:shadow-lg transition">
-                        <h4 class="text-xl font-semibold">Labial Natural
-                            Rosa</h4>
-                        <img src="./img/productos/labial_rosa.jpg"
-                            alt="Labial rosa natural"
-                            class="w-full rounded mb-4">
-                          <p class="text-gray-600 text-sm mb-2">Color suave con acabado cremoso. Ideal para uso diario.</p>
-                        <p class="text-pink-500 font-bold my-2">$3.200</p>
-                         <button onclick="abrirModal('labial')" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Ver más</button>
+                    <h4 class="font-semibold text-lg mb-2 text-gray-800">Ingredientes naturales</h4>
+                    <p class="text-gray-500 text-sm">Fórmulas con extractos botánicos tradicionales como el ginseng, té verde y camelia.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="layers" class="text-rose-400 w-6 h-6"></i>
                     </div>
-                    <!-- Producto 3 -->
-
-                    <div
-                        class="producto border rounded-lg p-4 shadow hover:shadow-lg transition">
-                        <h4 class="text-xl font-semibold">Crema Facial
-                            Nutritiva</h4>
-                        <img src="img/productos/crema_hidratante.jpg"
-                            alt="Crema facial nutritiva"
-                            class="w-full rounded mb-4">
-                        <p class="text-pink-500 font-bold my-2">$5.000</p>
-                         <button onclick="abrirModal('crema')" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Ver más</button>
+                    <h4 class="font-semibold text-lg mb-2 text-gray-800">Ritual de múltiples pasos</h4>
+                    <p class="text-gray-500 text-sm">Seguimos la filosofía coreana de cuidado capa por capa para mejores resultados.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="heart" class="text-rose-400 w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 text-gray-800">Libre de crueldad</h4>
+                    <p class="text-gray-500 text-sm">Todos nuestros productos son veganos y no testados en animales.</p>
+                </div>
+            </div>
+            
+            <!-- Sección adicional de filosofía -->
+            <div class="mt-16 bg-white rounded-xl overflow-hidden shadow-sm">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-rose-100 p-8 md:p-12 flex items-center">
+                        <div>
+                            <h4 class="text-2xl font-bold text-gray-800 mb-4">La filosofía K-Beauty</h4>
+                            <p class="text-gray-600 mb-4">En GlowNatural adoptamos el enfoque coreano de cuidado de la piel: prevención, protección y paciencia.</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i data-lucide="check" class="text-rose-400 w-4 h-4 mt-1 mr-2 flex-shrink-0"></i>
+                                    <span>Doble limpieza para una piel impecable</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="check" class="text-rose-400 w-4 h-4 mt-1 mr-2 flex-shrink-0"></i>
+                                    <span>Hidratación en capas para máxima eficacia</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="check" class="text-rose-400 w-4 h-4 mt-1 mr-2 flex-shrink-0"></i>
+                                    <span>Protección solar como paso esencial</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                        alt="Ritual de belleza coreano" 
+                        class="w-full h-auto max-h-96 object-cover rounded-lg">
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Beneficios -->
-        <section id="beneficios" class="bg-pink-50 py-16">
-            <div class="container mx-auto px-6">
-                <h3 class="text-3xl font-bold text-center mb-10">¿Por qué
-                    elegirnos?</h3>
-                <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <div>
-                        <i class="ph-leaf text-4xl text-pink-500 mb-4"></i>
-                        <h4 class="font-semibold text-xl">Ingredientes
-                            Naturales</h4>
-                        <p>Todos nuestros productos están elaborados con
-                            fórmulas veganas y sin crueldad animal.</p>
-                    </div>
-                    <div>
-                        <i class="ph-truck text-4xl text-pink-500 mb-4"></i>
-                        <h4 class="font-semibold text-xl">Envíos a todo el
-                            país</h4>
-                        <p>Recibí tu pedido en la puerta de tu casa estés donde
-                            estés en Argentina.</p>
-                    </div>
-                    <div>
-                        <i
-                            class="ph-chat-circle-dots text-4xl text-pink-500 mb-4"></i>
-                        <h4 class="font-semibold text-xl">Atención
-                            personalizada</h4>
-                        <p>Te asesoramos para que encuentres lo mejor para tu
-                            tipo de piel y estilo.</p>
-                    </div>
-                </div>
+    <!-- Contacto -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold mb-4 text-gray-800">¿Necesitas asesoramiento?</h3>
+                <p class="text-gray-600">Nuestros expertos en belleza asiática están para ayudarte</p>
             </div>
-        </section>
-
-        <!-- Contacto -->
-        <section id="contacto" class="py-16 bg-white">
-            <div class="container mx-auto px-6 max-w-lg">
-                <h3 class="text-3xl font-bold text-center mb-10">¡Hablemos!</h3>
+            
+            <div class="bg-rose-50 rounded-xl p-8 shadow-sm">
                 <form class="space-y-6" id="form-contacto">
-                    <input type="text" placeholder="Nombre"
-                        class="w-full p-3 border rounded" required>
-                    <input type="email" placeholder="Email"
-                        class="w-full p-3 border rounded" required>
-                    <textarea placeholder="Tu consulta..."
-                        class="w-full p-3 border rounded h-32"
-                        required></textarea>
-                    <button type="submit"
-                        class="bg-pink-500 text-white px-6 py-3 rounded hover:bg-pink-600">Enviar</button>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1 text-left">Nombre</label>
+                            <input type="text" id="nombre" placeholder="Tu nombre" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1 text-left">Email</label>
+                            <input type="email" id="email" placeholder="tu@email.com" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-transparent" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="consulta" class="block text-sm font-medium text-gray-700 mb-1 text-left">Tu consulta</label>
+                        <textarea id="consulta" placeholder="¿Cómo podemos ayudarte?" class="w-full p-3 border border-gray-300 rounded-lg h-32 focus:ring-2 focus:ring-rose-300 focus:border-transparent" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-rose-400 text-white px-6 py-3 rounded-lg hover:bg-rose-500 transition shadow-sm flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        <span>Enviar mensaje</span>
+                    </button>
                 </form>
             </div>
-        </section>
+            
+            <div class="mt-12 grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-4">
+                    <div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="mail" class="text-rose-400 w-5 h-5"></i>
+                    </div>
+                    <h5 class="font-medium text-gray-800 mb-1">Email</h5>
+                    <p class="text-gray-500 text-sm">hola@glownatural.com</p>
+                </div>
+                <div class="p-4">
+                    <div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="phone" class="text-rose-400 w-5 h-5"></i>
+                    </div>
+                    <h5 class="font-medium text-gray-800 mb-1">Teléfono</h5>
+                    <p class="text-gray-500 text-sm">+54 11 1234-5678</p>
+                </div>
+                <div class="p-4">
+                    <div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="map-pin" class="text-rose-400 w-5 h-5"></i>
+                    </div>
+                    <h5 class="font-medium text-gray-800 mb-1">Redes sociales</h5>
+                    <div class="flex justify-center gap-4 mt-2">
+                        <a href="#" class="text-rose-400 hover:text-rose-500"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-rose-400 hover:text-rose-500"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-rose-400 hover:text-rose-500"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="bg-pink-100 text-center py-6 mt-10">
-            <p>&copy; 2025 GlowNatural · Desarrollado por HaruwenTech</p>
-        </footer>
+    <!-- Footer -->
+    <footer class="bg-rose-100 text-center py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="#" class="text-gray-600 hover:text-rose-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-600 hover:text-rose-400"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-600 hover:text-rose-400"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-600 hover:text-rose-400"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 mb-6 text-sm">
+                <a href="#" class="text-gray-600 hover:text-rose-400">Términos y condiciones</a>
+                <a href="#" class="text-gray-600 hover:text-rose-400">Política de privacidad</a>
+                <a href="#" class="text-gray-600 hover:text-rose-400">Preguntas frecuentes</a>
+                <a href="#" class="text-gray-600 hover:text-rose-400">Envíos y devoluciones</a>
+            </div>
+            <p class="text-gray-600 text-sm">&copy; 2025 GlowNatural · Desarrollado por HaruwenTech</p>
+        </div>
+    </footer>
 
-        <div id="modal-producto" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full relative">
-    <button onclick="cerrarModal()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl">&times;</button>
-    <img id="modal-img" src="" alt="" class="rounded mb-4 w-full h-48 object-cover">
-    <h3 id="modal-titulo" class="text-xl font-bold text-pink-500 mb-2">Producto</h3>
-    <p id="modal-descripcion" class="text-sm text-gray-700 mb-2">Descripción del producto...</p>
-    <p id="modal-precio" class="text-pink-500 font-bold mb-4">$0.000</p>
-    <button id="btn-agregar" class="bg-pink-500 text-white px-6 py-2 rounded hover:bg-pink-600 w-full">Agregar al carrito</button>
+    
+    <!-- Modal -->
+  <div id="modal-producto"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 p-4">
+    <div class="bg-white rounded-xl shadow-lg p-6 max-w-md w-full relative max-h-[90vh] overflow-y-auto">
+      <button onclick="cerrarModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <div class="rounded-lg overflow-hidden mb-4 bg-rose-50 h-48 flex items-center justify-center">
+        <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
+      </div>
+      <h3 id="modal-titulo" class="text-xl font-bold text-gray-800 mb-2">Producto</h3>
+      <p id="modal-descripcion" class="text-gray-600 text-sm mb-2">Descripción del producto...</p>
+      <p id="modal-precio" class="text-rose-400 font-bold text-xl mb-4">$0.000</p>
+      <div class="space-y-4">
+        <button id="btn-agregar"
+          class="bg-rose-400 text-white px-6 py-3 rounded-lg hover:bg-rose-500 w-full flex items-center justify-center gap-2">
+          <i data-lucide="shopping-cart" class="w-5 h-5"></i><span>Agregar al carrito</span>
+        </button>
+        <button
+          class="border border-rose-300 text-rose-400 px-6 py-3 rounded-lg hover:bg-rose-50 w-full flex items-center justify-center gap-2">
+          <i data-lucide="heart" class="w-5 h-5"></i><span>Guardar en favoritos</span>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
 
-</div>
 
 <script src="js/main.js"></script>
-    </body>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</body>
 
 </html>
