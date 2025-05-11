@@ -1,0 +1,180 @@
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Tienda de skincare y maquillaje natural. Productos artesanales, naturales y de calidad. Descubrí tu ritual de belleza.">
+        <meta name="keywords"
+            content="skincare, maquillaje natural, tienda belleza, cuidado de la piel">
+        <meta name="author" content="Haruwen Tech">
+        <title>GlowNatural</title>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <link rel="icon" href="favicon.ico">
+    </head>
+
+    <body class="bg-white text-gray-800 font-sans scroll-smooth text-center">
+
+        <!-- Navbar -->
+        <header class="sticky top-0 bg-white shadow z-50">
+            <nav
+                class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <img src="./GlowNaturall.png" alt="Logo GlowNatural"
+                        class="h-12 w-auto">
+                    <h1
+                        class="text-2xl font-bold text-pink-500">GlowNatural</h1>
+                </div>
+                <button id="menu-btn"
+                    class="block md:hidden text-pink-500 text-3xl">
+                    <i class="ph ph-list"></i>
+                </button>
+                <ul id="menu"
+                    class="hidden md:flex gap-6 font-medium absolute md:static top-16 right-4 w-48 md:w-auto bg-white md:bg-transparent flex-col md:flex-row items-start md:items-center p-4 md:p-0 shadow md:shadow-none rounded-lg z-50">
+                    <li><a href="#home"
+                            class="hover:text-pink-500">Inicio</a></li>
+                    <li><a href="#catalogo"
+                            class="hover:text-pink-500">Catálogo</a></li>
+                    <li><a href="#beneficios"
+                            class="hover:text-pink-500">Beneficios</a></li>
+                    <li><a href="#contacto"
+                            class="hover:text-pink-500">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section id="home" class="bg-pink-100 py-20 text-center">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold mb-4">Cuidá tu piel, destacá tu
+                    belleza</h2>
+                <p class="text-lg mb-6">Productos de skincare y maquillaje
+                    natural pensados para vos</p>
+                <a href="#catalogo"
+                    class="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition">Explorar
+                    catálogo</a>
+            </div>
+        </section>
+
+        <!-- Catálogo -->
+        <section id="catalogo" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center mb-10">Catálogo de
+                    productos</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Producto 1 -->
+                    <div
+                        class="producto border rounded-lg p-4 shadow hover:shadow-lg transition">
+                        <h4 class="text-xl font-semibold">Serum Facial
+                            Hidratante</h4>
+                        <img src="img/productos/serum_facil.jpg"
+                            alt="Serum facial natural"
+                            class="w-full rounded mb-4">
+                              <p class="text-gray-600 text-sm mb-2">Ideal para piel seca. Con vitamina C y colágeno.</p>
+
+                        <p class="text-pink-500 font-bold my-2">$4.500</p>
+  <button onclick="abrirModal('serum')" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Ver más</button>
+
+                    </div>
+                    <!-- Producto 2 -->
+                    <div
+                        class="producto border rounded-lg p-4 shadow hover:shadow-lg transition">
+                        <h4 class="text-xl font-semibold">Labial Natural
+                            Rosa</h4>
+                        <img src="./img/productos/labial_rosa.jpg"
+                            alt="Labial rosa natural"
+                            class="w-full rounded mb-4">
+                          <p class="text-gray-600 text-sm mb-2">Color suave con acabado cremoso. Ideal para uso diario.</p>
+                        <p class="text-pink-500 font-bold my-2">$3.200</p>
+                         <button onclick="abrirModal('labial')" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Ver más</button>
+                    </div>
+                    <!-- Producto 3 -->
+
+                    <div
+                        class="producto border rounded-lg p-4 shadow hover:shadow-lg transition">
+                        <h4 class="text-xl font-semibold">Crema Facial
+                            Nutritiva</h4>
+                        <img src="img/productos/crema_hidratante.jpg"
+                            alt="Crema facial nutritiva"
+                            class="w-full rounded mb-4">
+                        <p class="text-pink-500 font-bold my-2">$5.000</p>
+                         <button onclick="abrirModal('crema')" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios -->
+        <section id="beneficios" class="bg-pink-50 py-16">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center mb-10">¿Por qué
+                    elegirnos?</h3>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <i class="ph-leaf text-4xl text-pink-500 mb-4"></i>
+                        <h4 class="font-semibold text-xl">Ingredientes
+                            Naturales</h4>
+                        <p>Todos nuestros productos están elaborados con
+                            fórmulas veganas y sin crueldad animal.</p>
+                    </div>
+                    <div>
+                        <i class="ph-truck text-4xl text-pink-500 mb-4"></i>
+                        <h4 class="font-semibold text-xl">Envíos a todo el
+                            país</h4>
+                        <p>Recibí tu pedido en la puerta de tu casa estés donde
+                            estés en Argentina.</p>
+                    </div>
+                    <div>
+                        <i
+                            class="ph-chat-circle-dots text-4xl text-pink-500 mb-4"></i>
+                        <h4 class="font-semibold text-xl">Atención
+                            personalizada</h4>
+                        <p>Te asesoramos para que encuentres lo mejor para tu
+                            tipo de piel y estilo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="py-16 bg-white">
+            <div class="container mx-auto px-6 max-w-lg">
+                <h3 class="text-3xl font-bold text-center mb-10">¡Hablemos!</h3>
+                <form class="space-y-6" id="form-contacto">
+                    <input type="text" placeholder="Nombre"
+                        class="w-full p-3 border rounded" required>
+                    <input type="email" placeholder="Email"
+                        class="w-full p-3 border rounded" required>
+                    <textarea placeholder="Tu consulta..."
+                        class="w-full p-3 border rounded h-32"
+                        required></textarea>
+                    <button type="submit"
+                        class="bg-pink-500 text-white px-6 py-3 rounded hover:bg-pink-600">Enviar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-pink-100 text-center py-6 mt-10">
+            <p>&copy; 2025 GlowNatural · Desarrollado por HaruwenTech</p>
+        </footer>
+
+        <div id="modal-producto" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full relative">
+    <button onclick="cerrarModal()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl">&times;</button>
+    <img id="modal-img" src="" alt="" class="rounded mb-4 w-full h-48 object-cover">
+    <h3 id="modal-titulo" class="text-xl font-bold text-pink-500 mb-2">Producto</h3>
+    <p id="modal-descripcion" class="text-sm text-gray-700 mb-2">Descripción del producto...</p>
+    <p id="modal-precio" class="text-pink-500 font-bold mb-4">$0.000</p>
+    <button id="btn-agregar" class="bg-pink-500 text-white px-6 py-2 rounded hover:bg-pink-600 w-full">Agregar al carrito</button>
+  </div>
+</div>
+
+</div>
+
+<script src="js/main.js"></script>
+    </body>
+
+</html>
